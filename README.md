@@ -16,5 +16,7 @@ In case our service1 calls another service2 to fullfil the request of its client
 So in this scenario client creates a future object and calls Service1. Service1 creates also a future and calls (in its programming loop) service2 (so service1 is also a client for service2).
 Service1 should in theory wait for the future to be filled by the response of service2 and then send that result back to the original client. But with some functions that doesn't seem to work. 
 This code explores this scenario and tries to fix it. I actually added a 4th node just to amplify this problem and make sure that it will work with multiple service inceptions.
+These are the relevant files that need to be manipulated
 ![Screenshot from 2024-02-28 20-52-44](https://github.com/DavidBierbrauer/Testfunctions/assets/47460151/ecbb6097-fb93-46f0-8a61-38224beb3468)
+and a folder hierarchy is usually in place, especially when an editor like Visual Studio Code is used
 ![Screenshot from 2024-02-28 20-51-52](https://github.com/DavidBierbrauer/Testfunctions/assets/47460151/3b5136f3-670c-4df9-850f-be45460696e1)
