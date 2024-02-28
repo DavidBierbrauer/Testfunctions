@@ -1,10 +1,12 @@
 HaiveEye:
+
 A test script to test the ballpark of accuracy for interaction sensors,
 based on a simple setup of a high accuracy ball screw with encoder controlled by an arduino with a simple firmware,
 a high accuracy linear gauge for reference
 and a sensor (light, hall etc...) that needs to be evaluated
 
 ROS Inception Test:
+
 ROS2 services can have a problem. In the classic way of programming them, the ecosystem seems to expect to return the answer right away.
 In OOP we would expect that we don't need to know what happens downstream. in the case of an asynchronous service call, our client wants to call the service
 and expects to get the answer in return, which will then trigger the client's callback function. We actually don't really care how the server obtains the required information
