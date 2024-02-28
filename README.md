@@ -4,7 +4,6 @@ A test script to test the ballpark of accuracy for interaction sensors,
 based on a simple setup of a high accuracy ball screw with encoder controlled by an arduino with a simple firmware,
 a high accuracy linear gauge for reference
 and a sensor (light, hall etc...) that needs to be evaluated
-file:///home/david/Pictures/Screenshots/Screenshot%20from%202024-02-28%2020-51-52.png
 
 ROS Inception Test:
 
@@ -18,3 +17,4 @@ So in this scenario client creates a future object and calls Service1. Service1 
 Service1 should in theory wait for the future to be filled by the response of service2 and then send that result back to the original client. But with some functions that doesn't seem to work. 
 This code explores this scenario and tries to fix it. I actually added a 4th node just to amplify this problem and make sure that it will work with multiple service inceptions.
 ![Screenshot from 2024-02-28 20-52-44](https://github.com/DavidBierbrauer/Testfunctions/assets/47460151/ecbb6097-fb93-46f0-8a61-38224beb3468)
+![Screenshot from 2024-02-28 20-51-52](https://github.com/DavidBierbrauer/Testfunctions/assets/47460151/3b5136f3-670c-4df9-850f-be45460696e1)
