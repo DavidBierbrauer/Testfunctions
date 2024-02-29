@@ -15,3 +15,8 @@ These are the relevant files that need to be manipulated for this code
 
 and a folder hierarchy is usually in place, especially when an editor like Visual Studio Code is used
 ![Screenshot from 2024-02-28 20-51-52](https://github.com/DavidBierbrauer/Testfunctions/assets/47460151/3b5136f3-670c-4df9-850f-be45460696e1)
+
+if we use terminator we can display can start and display all nodes quickly via the cammand terminals
+![Screenshot from 2024-03-01 01-08-19](https://github.com/DavidBierbrauer/Testfunctions/assets/47460151/cba4e92e-ac8e-41ef-99c9-f5f533a94f92)
+
+As we can see, we would expect that each node adds their _b3
