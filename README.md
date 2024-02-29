@@ -1,10 +1,3 @@
-HaiveEye:
-
-A test script to test the ballpark of accuracy for interaction sensors,
-based on a simple setup of a high accuracy ball screw with encoder controlled by an arduino with a simple firmware,
-a high accuracy linear gauge for reference
-and a sensor (light, hall etc...) that needs to be evaluated
-
 ROS Inception Test:
 
 ROS takes care of a variety of requirements in a robot: multithreading, messaging and callbacks. The publisher subscriber methods works fairly well, but ROS2 services can have a problem. In the classic way of programming them, the ecosystem seems to expect to return the answer right away.
