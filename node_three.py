@@ -13,14 +13,20 @@ class three_Node(Node): # name of what it does
         self.received = ""
         self.get_logger().info("three_Node has been started...")
 
+
+    # here we will see again that the service call self.call_four_node(request.time,new_message)
+    # will not be resolved before the service server callback_called_by_two(self,request,response) will answer to node two
+    # if we comment out self.received = "", then we don't reset it and will see that the next spins will actually slowly carry the message forward
+    # this is of course only because we use another variable to safe the previous information
     def callback_called_by_two(self,request,response):
         self.received = ""
         duration=time.time_ns()-request.time
         new_message = request.message+("_three:{}".format(duration))
-        self.call_four_node(duration,new_message)
+        self.call_four_node(request.time,new_message)
         response.feedback = self.received
         return response # it needs a return (if the service has a return), otherwise the code throws an error
 
+    ### standard client ###
     def call_four_node(self, time,message):
         client = self.create_client(Inception, "call_four")
         while not client.wait_for_service(1.0):
@@ -30,20 +36,15 @@ class three_Node(Node): # name of what it does
         request.time = time
         request.message = message
         future = client.call_async(request)
-        print("before spin")
         future.add_done_callback(
             partial(self.callback_call_four, call =(time,message)))
          
-        
-        
-
     def callback_call_four(self, future, call):
         try:
-            response = future.result()
-            response.feedback = response.feedback + "_b3"
-            print(response)
-            self.get_logger().info("call_four at {}:{}, feedback:{}".format(call[0], call[1],response.feedback))
-            self.received = response.feedback
+            response4 = future.result()
+            response4.feedback = response4.feedback + "_b3"
+            self.get_logger().info("call_four at {}:{}, feedback:{}".format(call[0], call[1],response4.feedback))
+            self.received = response4.feedback
         except Exception as e:
             self.get_logger().error("Service call failed %r" % (e,))
 
