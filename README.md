@@ -20,7 +20,7 @@ if we use terminator we can display can start and display all nodes quickly via 
 ![Screenshot from 2024-03-01 01-08-19](https://github.com/DavidBierbrauer/Testfunctions/assets/47460151/cba4e92e-ac8e-41ef-99c9-f5f533a94f92)
 
 If you go into the code, then you see that each node writes sends their service call with a message that contains a string with the timestamp and that they called the next node. Each node picks up that message and for their own servic call they attach the previous message after an underscore_. In node_four it is the easiest to see.
-one:0_two:xxxxxx_three:xxxxxxx_four:xxxxxxx. This shows that the messages are correctly forwarded.
+one:0_two:xxxxxx_three:xxxxxxx_four:xxxxxxx. This shows that the messages are correctly forwarded through this service inception.
 As we can see in the code, for the response every function is supposed to take the previous response and add their _b2 (or _b1,_b3, _b4), but this doesn't happen as expected. the message from node 4 is not all the way backpropagated in the same cycle. The service response is therefore resolved before the future from the inception service is actually filled. This is good to know, since therefore we can not start a service within a service without very very explicitely telling the system to wait with the response until the future is filled. like mentioned before, at this point it is useful to look into executors and callback groups and what they can do for us in this case.
 ![Screenshot from 2024-03-01 03-21-47](https://github.com/DavidBierbrauer/Testfunctions/assets/47460151/335e5b99-a915-4492-be21-ef4e4f813de5)
 
